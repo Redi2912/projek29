@@ -1,64 +1,56 @@
+<?php
+	require "../koneksi.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Login - Admin</title>
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Layanan Web</title>
+	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 </head>
 
-<body class="bg-primary">
-    <div id="layoutAuthentication">
-        <div id="layoutAuthentication_content">
-            <main>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-5">
-                            <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Login</h3>
-                                </div>
-                                <div class="card-body">
-                                    <?php
-                                    if (isset($_GET['pesan'])) {
-                                        if ($_GET['pesan'] == "gagal") {
-                                            echo "Login gagal! username dan password salah!";
-                                        } else if ($_GET['pesan'] == "logout") {
-                                            echo "Anda telah berhasil logout";
-                                        } else if ($_GET['pesan'] == "belum_login") {
-                                            echo "Anda harus login untuk mengakses halaman admin";
-                                        }
-                                    }
-                                    ?>
-                                    <form method="post" action="proses_login.php">
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="text" name="username" placeholder="Username" />
-                                            <label for="inputEmail">Username</label>
-                                        </div>
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="password" name="password" placeholder="Password" />
-                                            <label for="inputPassword">Password</label>
-                                        </div>
-                                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <button class="btn btn-primary" type="submit">Login</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="js/scripts.js"></script>
-</body>
+<style>
+	.main{
+		height: 100vh;
+	}
 
+	.login-box{
+		width: 500px;
+		height:  400px;
+		box-sizing: border-box;
+		border-radius: 10px;
+	}
+</style>
+
+<body>
+	<div class="global-container">
+		<div class="card login-form">
+			<div class="card-body">
+				<h1 class="card-title text-center">Selamat Datang Kembali</h1>
+			</div>
+		</div>
+	</div>			
+	<div class="main d-flex justify-content-center align-items-center">
+		<div class="login-box p-5 shadow">
+			<form action="" method="post">
+				<h1 class= "text-center mt+3">Masuk</h1>
+				<div>
+					<label for="username">Masukan Email</label>
+					<input type="text" class="form-control" name="username" id="username">
+				</div>
+				<div>
+					<label for="password">Masukan Password</label>
+					<input type="text" class="form-control" name="password" id="password">
+					<div id="password" class="form-text">Belum Punya Akun?</div>
+				</div>
+				<div>
+					<button class="btn btn-success form-control mt-5" type="submit">Masuk</button>
+				</div>
+			</form>	
+	    </div>
+	</div>	
+</body>
 </html>
